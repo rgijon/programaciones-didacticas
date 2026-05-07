@@ -1,56 +1,10 @@
 @extends('template')
-@section('content')
-
-<h1>Ciclos Formativos</h1>
-<em>Gestión de Ciclos Formativos</em>
-<br>
-<a href="{{ route('ciclos.create')}}" class="btn btn-success mb-3">Nuevo ciclo</a>
-<br>
-
-<h4>Buscador de Ciclos</h4>
-<hr>
-<p>Búsqueda de Ciclos por nombre</p>
-<form method="GET" action="{{route('ciclos.index')}}" class="mb-3">
-        <input type="text" name="buscar" class="form-control" placeholder="Buscar ciclo" value="{{$buscar}}">
-        <button class="btn btn-primary mt-2"> Buscar </button>
-    </form>
-<br>
-<h4>Listado de ciclos</h4>
-<hr>
-
-@foreach ($ciclos as $ciclo)
-
-
-    <p>
-        {{ $ciclo->nombre}}
-        <a href="{{route('ciclos.edit', $ciclo)}}">Editar ciclo</a>
-
-        <form method="POST" action="{{route('ciclos.destroy', $ciclo)}}">
-            @csrf
-            @method('DELETE')
-            <button class=”btn btn-danger brn-sm”
-            onclick="return confirm('¿Seguro que desea eliminar este ciclo?')">
-            Eliminar ciclo</button>
-        </form>
-        <br>
-    </p>
-
-@endforeach
-
-{{ $ciclos->links()}}
-@endsection
-
-
-
-
-{{--CODIGO NUEVO
-@extends('template')
 
 @section('content')
 
 <div class="container py-4">
 
-    //Encabezado
+    {{--Encabezado --}}
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
             <h1 class="fw-bold">Ciclos Formativos</h1>
@@ -64,7 +18,7 @@
         </a>
     </div>
 
-    //Buscador
+    {{--Buscador --}}
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             <h4 class="mb-3">Buscar ciclos</h4>
@@ -82,7 +36,7 @@
                     <button class="btn btn-primary">
                         <i class="bi bi-search"></i> Buscar
                     </button>
-                    //Botón volver al listado completo
+                    {{--Botón volver al listado completo --}}
                     <a href="{{ route('ciclos.index')}}" class="btn btn-secondary">
                         Ver todos
                     </a>
@@ -91,7 +45,7 @@
         </div>
     </div>
 
-    //Listado
+    {{--Listado --}}
     <div class="card shadow-sm">
         <div class="card-body">
 
@@ -143,7 +97,7 @@
                     </tbody>
                 </table>
 
-                // Paginación
+                {{--Paginación--}}
                 <div class="mt-3">
                     {{ $ciclos->links() }}
                 </div>
@@ -162,4 +116,52 @@
 </div>
 
 @endsection
+
+
+
+{{--CODIGO ANTOGUO
+@extends('template')
+@section('content')
+
+<h1>Ciclos Formativos</h1>
+<em>Gestión de Ciclos Formativos</em>
+<br>
+<a href="{{ route('ciclos.create')}}" class="btn btn-success mb-3">Nuevo ciclo</a>
+<br>
+
+<h4>Buscador de Ciclos</h4>
+<hr>
+<p>Búsqueda de Ciclos por nombre</p>
+<form method="GET" action="{{route('ciclos.index')}}" class="mb-3">
+        <input type="text" name="buscar" class="form-control" placeholder="Buscar ciclo" value="{{$buscar}}">
+        <button class="btn btn-primary mt-2"> Buscar </button>
+    </form>
+<br>
+<h4>Listado de ciclos</h4>
+<hr>
+
+@foreach ($ciclos as $ciclo)
+
+
+    <p>
+        {{ $ciclo->nombre}}
+        <a href="{{route('ciclos.edit', $ciclo)}}">Editar ciclo</a>
+
+        <form method="POST" action="{{route('ciclos.destroy', $ciclo)}}">
+            @csrf
+            @method('DELETE')
+            <button class=”btn btn-danger brn-sm”
+            onclick="return confirm('¿Seguro que desea eliminar este ciclo?')">
+            Eliminar ciclo</button>
+        </form>
+        <br>
+    </p>
+
+@endforeach
+
+{{ $ciclos->links()}}
+@endsection
+
+
+
 --}}
