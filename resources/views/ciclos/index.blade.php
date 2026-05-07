@@ -18,28 +18,51 @@
         </a>
     </div>
 
-    {{--Buscador --}}
+    {{--buscador y filtro--}}
     <div class="card shadow-sm mb-4">
         <div class="card-body">
-            <h4 class="mb-3">Buscar ciclos</h4>
+            <h4 class="mb-3">Buscar y/o filtrar ciclos</h4>
 
             <form method="GET" action="{{ route('ciclos.index') }}">
-                <div class="input-group">
-                    <input
-                        type="text"
-                        name="buscar"
-                        class="form-control"
-                        placeholder="Buscar ciclo..."
-                        value="{{ $buscar }}"
-                    >
+                <div class="row g-2 align-items-center">
 
-                    <button class="btn btn-primary">
-                        <i class="bi bi-search"></i> Buscar
-                    </button>
-                    {{--Botón volver al listado completo --}}
-                    <a href="{{ route('ciclos.index')}}" class="btn btn-secondary">
-                        Ver todos
-                    </a>
+                    {{-- Buscador --}}
+                    <div class="col-md-4">
+                        <input
+                            type="text"
+                            name="buscar"
+                            class="form-control"
+                            placeholder="Buscar ciclo..."
+                            value="{{ $buscar }}"
+                        >
+                    </div>
+
+                    {{-- Filtro por grado --}}
+                    <div class="col-md-4">
+                        <select name="grado" class="form-control">
+                            <option value="">-- Filtrar por grado --</option>
+
+                            <option value="Superior" {{ $grado == 'Superior' ? 'selected' : '' }}>
+                                Superior
+                            </option>
+
+                            <option value="Medio" {{ $grado == 'Medio' ? 'selected' : '' }}>
+                                Medio
+                            </option>
+                        </select>
+                    </div>
+
+                    {{-- Botones --}}
+                    <div class="col-md-4 d-flex gap-2">
+                        <button class="btn btn-primary">
+                            <i class="bi bi-search"></i> Buscar
+                        </button>
+
+                        <a href="{{ route('ciclos.index') }}" class="btn btn-secondary">
+                            Ver todos
+                        </a>
+                    </div>
+
                 </div>
             </form>
         </div>

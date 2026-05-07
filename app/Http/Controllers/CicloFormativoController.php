@@ -9,20 +9,21 @@ use Illuminate\Http\Request;
 
 class CicloFormativoController extends Controller
 {
-    /*public function index()
-    {
-        $ciclos = CicloFormativo::paginate(2);
-        return view('ciclos.index', compact('ciclos'));
-    }*/
 
     public function index( Request $request)
     {
-        $buscar = $request->buscar;
+        $buscar=$request->buscar;
+        $grado = $request->grado;
 
-        $ciclos = CicloFormativo::where('nombre', 'LIKE', "%{$buscar}%") //Busqueda por nombre
-        ->paginate(2); //Mantenemos paginate en 2 para que aparezca la paginación, ya que tenemos 3 ciclos registrados.
-
-        return view ('ciclos.index', compact('ciclos', 'buscar'));
+        $query = CicloFormativo::query();
+        if ($buscar) {
+            $query-> where('nombre', 'LIKE',"%{$buscar}%");
+        }
+        if($grado) {
+            $query ->where('grado', $grado);
+        }
+        $ciclos = $query -> paginate(2);
+        return view ('ciclos.index', compact('ciclos', 'buscar', 'grado'));
     }
 
     public function create()
