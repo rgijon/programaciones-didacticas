@@ -5,6 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+// Validación para la actualización de ciclos existentes.
+
 class UpdateCicloFormativoRequest extends FormRequest
 {
     /**

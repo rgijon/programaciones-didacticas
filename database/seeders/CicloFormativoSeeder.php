@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\CicloFormativo;
 
-
+//Con seeder insertamos datos de prueba
 class CicloFormativoSeeder extends Seeder
 {
     /**

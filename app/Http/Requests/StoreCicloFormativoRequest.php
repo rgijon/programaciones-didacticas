@@ -5,6 +5,9 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
+
+//Validación para la creación de nuevos ciclos formativos.
+
 class StoreCicloFormativoRequest extends FormRequest
 {
     /**
@@ -31,7 +34,7 @@ class StoreCicloFormativoRequest extends FormRequest
         ];
     }
 
-    // Método para personalizar el mensaje e error en el formulario
+    // Método para personalizar el mensaje de error en el formulario
 
     public function messages():array
     {

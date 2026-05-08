@@ -18,7 +18,7 @@
         </a>
     </div>
 
-    {{--buscador y filtro--}}
+    {{--Buscador y filtro--}}
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             <h4 class="mb-3">Buscar y/o filtrar ciclos</h4>
@@ -142,7 +142,7 @@
 
 
 
-{{--CODIGO ANTOGUO
+{{--CODIGO ANTiGUO
 @extends('template')
 @section('content')
 

@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //Crea la tabla ciclo_formativos y sus atributos
         Schema::create('ciclo_formativos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 150);
